@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>binary_search</artifactId>
+    <artifactId>linked_list</artifactId>
 
 
 </project>

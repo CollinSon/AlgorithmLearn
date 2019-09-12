@@ -19,16 +19,16 @@ public class BinarySearchApp {
     private static Logger log = Logger.getLogger("BinarySearchApp");
     public static void main(String[] args) {
         //初始化数据数组
-        int[] numberArr=new int[128];
+        int max=100000000;
+        int[] numberArr=new int[max];
         for (int i=0;i<numberArr.length;i++){
             numberArr[i]=i;
         }
-        int findNum= RandomUtils.getARandomNum(128);
+        int findNum= RandomUtils.getARandomNum(max);
         log.info("生成的随机数是"+findNum);
         int tick=1;
         //第一次查询
         int min=0;
-        int max=128;
         int mediumNum=(min+max)/2;
         while (numberArr[mediumNum]!=findNum){
             log.info("第"+tick+"次比较,"+"最大数是"+max+",最小数是"+min+",中间数是"+mediumNum);
@@ -48,4 +48,5 @@ public class BinarySearchApp {
         }
         log.info("共"+tick+"次比较");
     }
+    //真他妈快
 }

@@ -9,9 +9,16 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>bindary_search</module>
         <module>binary_search</module>
+        <module>linked_list</module>
     </modules>
 
-
+    <dependencies>
+        <!--@slfj注解-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+        </dependency>
+    </dependencies>
 </project>
