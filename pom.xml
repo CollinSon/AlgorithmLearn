@@ -11,6 +11,7 @@
     <modules>
         <module>binary_search</module>
         <module>linked_list</module>
+        <module>quick_sort</module>
     </modules>
 
     <dependencies>
