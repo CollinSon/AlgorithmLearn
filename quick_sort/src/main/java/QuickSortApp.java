@@ -1,5 +1,6 @@
 import lombok.extern.slf4j.Slf4j;
 
+import javax.security.auth.Subject;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -23,14 +24,21 @@ public class QuickSortApp {
     public static void main(String[] args) {
         //生成一组随机数组，作为随机数数组
         List<Integer> dataList=new LinkedList<Integer>();
-        for (int i=0;i<10;i++){
+        for (int i=0;i<5;i++){
             Random rand = new Random();
             dataList.add(rand.nextInt(129));
         }
-        List<Integer> resultList=quickSort(dataList);
+        List<Integer> resultList=QuickSort(dataList);
         for (int i : resultList){
             System.out.println(i);
         }
+        //测试Sum函数
+//        List<Integer> array=new ArrayList<Integer>();
+//        array.add(1);
+//        array.add(2);
+//        array.add(3);
+//        array.add(4);
+//        System.out.println(sumFunc(array,0));
     }
 
     private static List<Integer> quickSort(List<Integer> dataList){
@@ -61,5 +69,39 @@ public class QuickSortApp {
         }
     }
 
+    private static Integer sumFunc(List<Integer> arr,int sum){
+        if (arr.size() <=1){
+            return sum;
+        }
+        else {
+            int temp=arr.get(arr.size()-1);
+            arr.remove(arr.size()-1);
+            sum+=temp;
+            return sumFunc(arr,sum);
+        }
+    }
+
+    private static List<Integer>  QuickSort(List<Integer> needSortList){
+        if (needSortList.size() <=0){
+            return needSortList;
+        }
+        else {
+            int pivot=needSortList.get(0);
+            List<Integer> lowerList=new LinkedList<Integer>();
+            List<Integer> higherList=new LinkedList<Integer>();
+            for (int element : needSortList){
+                if (element < pivot){
+                    lowerList.add(element);
+                }
+                else if (element >pivot){
+                    higherList.add(element);
+                }
+            }
+            List<Integer> sortedList=new LinkedList<Integer>(QuickSort(lowerList));
+            sortedList.add(pivot);
+            sortedList.addAll(QuickSort(higherList));
+            return sortedList;
+        }
+    }
 
 }
