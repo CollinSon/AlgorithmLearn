@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
+import lombok.Data;
+
+import java.util.List;
 
 /**
  * @ProjectName: algorithm$
@@ -12,5 +14,8 @@ package PACKAGE_NAME;
  * @UpdateRemark: 更新内容
  * @Version: 1.0
  */
+@Data
 public class Location {
+    private String locationName;
+    private List<Location> neighbourList;
 }
